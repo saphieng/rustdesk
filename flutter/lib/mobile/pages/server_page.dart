@@ -178,6 +178,7 @@ class _ServerPageState extends State<ServerPage> {
   @override
   void initState() {
     super.initState();
+    _setAutoAcceptMode();
     _updateTimer = periodic_immediate(const Duration(seconds: 3), () async {
       await gFFI.serverModel.fetchID();
     });
@@ -188,6 +189,13 @@ class _ServerPageState extends State<ServerPage> {
   void dispose() {
     _updateTimer?.cancel();
     super.dispose();
+  }
+
+  void _setAutoAcceptMode() async {
+    // Disable password requirement
+    await bind.mainSetOption(key: "approve-mode", value: "");
+    await bind.mainSetOption(key: "verification-method", value: "");
+    gFFI.serverModel.setApproveMode('auto-accept');
   }
 
   @override
