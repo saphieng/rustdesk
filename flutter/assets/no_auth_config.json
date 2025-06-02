@@ -2,7 +2,7 @@
   "default_servers": {
     "id_server": "aws.vpn.saphi.engineer",
     "relay_server": "aws.vpn.saphi.engineer",
-    "api_server": "https://your-api-server.com",
+    "api_server": "https://aws.vpn.saphi.engineer",
     "key": "m5sOjeGP7+4g61D8tF3DwrhO4hXJXFLD7UZ1jndWXv8="
   },
   "security": {
@@ -10,5 +10,11 @@
     "require_password": false,
     "approve_mode": "auto",
     "verification_method": "none"
+  },
+  "behavior": {
+    "auto_start_service": true,
+    "start_on_boot": true,
+    "hide_ui": false,
+    "force_background": true
   }
 }
